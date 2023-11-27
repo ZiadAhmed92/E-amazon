@@ -1,3 +1,4 @@
+
 .text-header {
     font-size: 0.7em;
     color: rgba(255, 255, 255, 0.7);
@@ -19,6 +20,7 @@
 }
 
 .img-header {
+    
     min-height: 60px;
     transition: .5s;
     -webkit-transition: .5s;
@@ -139,7 +141,7 @@
 
 .text-cart {
     color: white;
-    padding-top: 5px;
+    padding-top: 30%;
 }
 
 /* header-bottom */
@@ -172,7 +174,9 @@
   .location {
      display: none !important;
     }
-    
+    .header{
+        flex-wrap: wrap;
+    }
 
 
 

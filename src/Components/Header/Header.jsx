@@ -5,10 +5,11 @@ import { SlLocationPin } from "react-icons/sl";
 import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
 import cartIcon from "../../image/cartIcon.png"
+import Link from 'next/link';
 const Header = () => {
   return (
-    <div className='header bg-dark p-2 d-flex align-items-center gap-3'>
-      <div className='img-header'> <Image src={logo} width={100} height={50} className='  mx-3 mt-1' alt='logo' /></div>
+    <div className='header p-2 d-flex align-items-center justify-content-center gap-2 ' style={{ background: "#131921" }}>
+      <Link href={"/"} style={{ textDecoration: "none" }}><div className='img-header'> <Image src={logo} width={100} height={50} className='mx-3 mt-1' alt='logo' /></div></Link>
       <div className='location text-white d-flex align-items-center gap-2   ' >
         <SlLocationPin />
         <h6 className='text-header text-center'>Deliver to <span className='d-block text-white'>Egypt</span></h6>
@@ -21,26 +22,31 @@ const Header = () => {
         <h6 className='sign-in-1'>Hello,sign in</h6>
         <h6 className="sign-in-2">
           Account&Lists
-        
-           <BiCaretDown />
-        
+
+          <BiCaretDown />
+
         </h6>
       </div>
       <div className='sign-in'>
         <h6 className='sign-in-1'>Marked</h6>
         <h6 className="font-bold text-white">&favorite</h6>
       </div>
-      <div className='cart'>
-      <Image
+      <Link href={"/crad"} style={{ textDecoration: "none" }}>
+        <div className='cart'>
+          <Image
+            width={100}
+            height={30}
             className="img-cart"
             src={cartIcon}
             alt="cart icon"
           />
-          <div className='text-cart'><p className="fw-bold">Cart</p></div>
+          <div className='text-cart'><p className="fw-bold ">Cart</p></div>
           <p className="num-cart ">
             0
           </p>
-      </div>
+        </div>
+      </Link>
+
     </div>
   )
 }
