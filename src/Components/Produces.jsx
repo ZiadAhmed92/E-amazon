@@ -2,8 +2,13 @@ import Image from 'next/image'
 import React from 'react'
 import { FaShoppingCart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
+import FormaterPrice from './FormaterPrice';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '@/store/nextSlice';
 const Produces = ({ Produces }) => {
-    console.log(Produces)
+    const {cartProducts} = useSelector((state) => state.items)
+  
+    const dispatch = useDispatch();
     return (
         <>
             {Produces.map(({
@@ -17,12 +22,12 @@ const Produces = ({ Produces }) => {
                 isNew,
                 category,
             }) => (
-                <div className='col-md-3 gy-3 produces-translate'>
+                <div className='col-lg-3 col-md-4 col-sm-6  gy-3 produces-translate' key={_id}>
                     <div className='bg-white p-2 position-relative' style={{ borderRadius: "10px" }}>
                         {isNew && (
-                            <p className=" discount">
-                                !save ${`${oldPrice - price}`.slice(0, 5)}
-                            </p>
+                            <div className=" discount d-flex">
+                                !save <FormaterPrice amount={oldPrice - price} />
+                                </div>
                         )}
                         <div className='img-hover ' style={{ overflow: "hidden", borderBottom: "1px solid  rgba(0, 0, 0, 0.107)" }}>
                             <Image
@@ -39,13 +44,27 @@ const Produces = ({ Produces }) => {
                             <h6 style={{ color: "rgba(0, 0, 0, 0.507)" }}>{category}</h6>
                             <h5>{title}</h5>
                             <div className='d-flex gap-2'>
-                                <h6 className='fw-bold text-decoration-line-through' style={{ color: "rgba(0, 0, 0, 0.507)" }}>${oldPrice}</h6>
-                                <h6 className='fw-bold'>${price}</h6>
+                                <h6 className='fw-bold text-decoration-line-through' style={{ color: "rgba(0, 0, 0, 0.507)" }}><FormaterPrice amount={oldPrice} /></h6>
+                                <h6 className='fw-bold'><FormaterPrice amount={price} /></h6>
                             </div>
-                            <p className='fs-7'>{`${description}`.substring(0, 120)}</p>
-                            <button className='btn btn-black w-100'>Add To Card</button>
+                            <p className='fs-7'>{`${description}`.substring(0, 100)}</p>
+                            <button 
+                            className='btn btn-black w-100'
+                            onClick={()=> dispatch(addToCart({
+                                _id,
+                                title,
+                                description,
+                                oldPrice,
+                                price,
+                                brand,
+                                image,
+                                isNew,
+                                category,
+                                quantity: 1,
+                            }))}
+                            >Add To Card</button>
                         </div>
-                        
+
                         <div className="favouritCard ">
                             <span
                                 className="fs-3 shopping"
@@ -57,7 +76,7 @@ const Produces = ({ Produces }) => {
                                 className="fs-3"
                             >
                                 <FaHeart
-
+                                    className='text-danger'
                                 />
                             </span>
                         </div>

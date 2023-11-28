@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import Banner from '@/Components/Banner'
-import Footer from '@/Components/Footer'
+
 import axios from 'axios'
 import Produces from '@/Components/Produces'
 const inter = Inter({ subsets: ['latin'] })
@@ -19,13 +19,13 @@ export default function Home({ data }) {
       </Head>
     
     
-      <div className='position-relative'>
+      <div className=''>
         <Banner />
         <div className=''>
-          <div className='container-fluid produces'>
-            <div className='row'>
+          <div className='container-fluid  position-relative'>
+            <div className='row py-3'>
              <Produces Produces={data}/>
-             <Footer />
+             
             </div>
           </div>
         </div>

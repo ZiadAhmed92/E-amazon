@@ -6,7 +6,10 @@ import { HiOutlineSearch } from "react-icons/hi";
 import { BiCaretDown } from "react-icons/bi";
 import cartIcon from "../../image/cartIcon.png"
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
 const Header = () => {
+  const {cartProducts} = useSelector((state) => state.items)
+ 
   return (
     <div className='header p-2 d-flex align-items-center justify-content-center gap-2 ' style={{ background: "#131921" }}>
       <Link href={"/"} style={{ textDecoration: "none" }}><div className='img-header'> <Image src={logo} width={100} height={50} className='mx-3 mt-1' alt='logo' /></div></Link>
@@ -42,7 +45,7 @@ const Header = () => {
           />
           <div className='text-cart'><p className="fw-bold ">Cart</p></div>
           <p className="num-cart ">
-            0
+           {cartProducts.length?cartProducts.length:0}
           </p>
         </div>
       </Link>
