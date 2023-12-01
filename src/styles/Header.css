@@ -3,7 +3,9 @@
     font-size: 0.7em;
     color: rgba(255, 255, 255, 0.7);
 }
-
+.num-favourit{
+    color: rgb(4, 250, 4);
+}
 .icon-search {
     min-height: 100%;
     width: 40px;

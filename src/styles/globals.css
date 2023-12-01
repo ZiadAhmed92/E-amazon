@@ -127,8 +127,12 @@
 
     }
 
-
-
+    .favourit-center{
+        text-align: center;
+    }
+.btn-favourit{
+    width: 50% ;
+}
 }
 
 /* crad */

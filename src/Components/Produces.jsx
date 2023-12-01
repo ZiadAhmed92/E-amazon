@@ -4,10 +4,10 @@ import { FaShoppingCart } from "react-icons/fa";
 import { FaHeart } from "react-icons/fa";
 import FormaterPrice from './FormaterPrice';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '@/store/nextSlice';
+import { addToCart,addToFavourit } from '@/store/nextSlice';
 const Produces = ({ Produces }) => {
-    const {cartProducts} = useSelector((state) => state.items)
-  
+    const {cartProducts ,favoriteProducts} = useSelector((state) => state.items)
+  console.log(favoriteProducts.length)
     const dispatch = useDispatch();
     return (
         <>
@@ -86,9 +86,24 @@ const Produces = ({ Produces }) => {
                             <span
 
                                 className="fs-3"
+                               
                             >
                                 <FaHeart
-                                    className='text-danger'
+                                    style={favoriteProducts.find((item)=> item._id === _id)?{color:"red"}:""}
+                                    onClick={()=> dispatch(addToFavourit({
+                                        _id,
+                                        title,
+                                        description,
+                                        oldPrice,
+                                        price,
+                                        brand,
+                                        image,
+                                        isNew,
+                                        category,
+                                       
+                                    }))
+                                
+                            }
                                 />
                             </span>
                         </div>
