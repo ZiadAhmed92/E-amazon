@@ -4,7 +4,6 @@ const initialState = {
     cartProducts: [],
     favoriteProducts: [],
     allProducts: [],
-
     userInfo: null,
 }
 export const itemsSlice = createSlice({
