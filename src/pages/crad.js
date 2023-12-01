@@ -8,7 +8,7 @@ import { VscChromeClose } from "react-icons/vsc";
 
 import Head from 'next/head';
 import { resetCart } from '@/store/nextSlice';
-const crad = () => {
+const Crad = () => {
   const { cartProducts } = useSelector((state) => state.items)
   const dispatch = useDispatch();
   console.log(cartProducts.length)
@@ -90,4 +90,4 @@ const crad = () => {
   )
 }
 
-export default crad
+export default Crad
