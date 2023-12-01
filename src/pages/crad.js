@@ -7,11 +7,11 @@ import { HiOutlineMinus } from "react-icons/hi2";
 import { VscChromeClose } from "react-icons/vsc";
 
 import Head from 'next/head';
-import { resetCart } from '@/store/nextSlice';
+import { incrementByAmount,removeProduce, decrementByAmount, resetCart } from '@/store/nextSlice';
 const Crad = () => {
   const { cartProducts } = useSelector((state) => state.items)
   const dispatch = useDispatch();
-  console.log(cartProducts.length)
+ 
   return (
     <>
       <Head>
@@ -56,12 +56,45 @@ const Crad = () => {
                         <p className='d-flex'>unit price : <span className='fw-bold'><FormaterPrice amount={price} /></span></p>
                         <div className='d-flex align-items-center gap-5'>
                           <div className='crad-quantity'>
-                            <span><HiOutlinePlus className='icon' /></span>
+                            <span><HiOutlinePlus onClick={() => dispatch(incrementByAmount({
+                              _id,
+                              title,
+                              description,
+                              oldPrice,
+                              price,
+                              brand,
+                              image,
+                              isNew,
+                              category,
+                              quantity
+                            }))} className='icon' /></span>
                             <span>{quantity}</span>
-                            <span> <HiOutlineMinus className='icon' /></span>
+                            <span> <HiOutlineMinus onClick={() => dispatch(decrementByAmount({
+                              _id,
+                              title,
+                              description,
+                              oldPrice,
+                              price,
+                              brand,
+                              image,
+                              isNew,
+                              category,
+                              quantity
+                            }))} className='icon' /></span>
                           </div>
-                          <span className='remove'>
-                            <VscChromeClose /> remove
+                          <span  className='remove' onClick={() => dispatch(removeProduce({
+                              _id,
+                              title,
+                              description,
+                              oldPrice,
+                              price,
+                              brand,
+                              image,
+                              isNew,
+                              category,
+                              quantity
+                            }))}>
+                            <VscChromeClose   /> remove
                           </span>
 
                         </div>

@@ -68,6 +68,18 @@ const Produces = ({ Produces }) => {
                         <div className="favouritCard ">
                             <span
                                 className="fs-3 shopping"
+                                onClick={()=> dispatch(addToCart({
+                                    _id,
+                                    title,
+                                    description,
+                                    oldPrice,
+                                    price,
+                                    brand,
+                                    image,
+                                    isNew,
+                                    category,
+                                    quantity: 1,
+                                }))}
                             >
                                 <FaShoppingCart />
                             </span>

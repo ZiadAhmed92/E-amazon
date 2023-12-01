@@ -24,13 +24,34 @@ export const itemsSlice = createSlice({
             state.cartProducts=[]
         },
         incrementByAmount: (state, action) => {
-            state.value += action.payload
+            let existingProduct = state.cartProducts.find(
+                (item) => item._id == action.payload._id)
+                if(existingProduct){
+                    existingProduct.quantity += 1
+                }
+        },
+        decrementByAmount: (state, action) => {
+            let existingProduct = state.cartProducts.find(
+                (item) => item._id == action.payload._id)
+                if(existingProduct && existingProduct.quantity >= 2){
+
+                    existingProduct.quantity -= 1
+                }
+        },
+        removeProduce: (state, action) => {
+            let existingProduct = state.cartProducts.filter(
+                (item) => item._id != action.payload._id)
+               
+                if(existingProduct){
+                       
+                    state.cartProducts = existingProduct
+                }
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart, resetCart, incrementByAmount } = itemsSlice.actions
+export const { addToCart, resetCart, incrementByAmount,decrementByAmount ,removeProduce} = itemsSlice.actions
 
 const itemsSliceReducer = itemsSlice.reducer
 
