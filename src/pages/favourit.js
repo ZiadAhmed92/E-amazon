@@ -2,6 +2,7 @@ import FormaterPrice from '@/Components/FormaterPrice'
 import { addToCart, resetFavourit } from '@/store/nextSlice'
 import Head from 'next/head'
 import Image from 'next/image'
+import Link from 'next/link'
 import React from 'react'
 import { VscChromeClose } from 'react-icons/vsc'
 import { useDispatch, useSelector } from 'react-redux'
@@ -82,7 +83,12 @@ const Favourit = () => {
                   </div>
                 ))}
               <div className='text-center'> {favoriteProducts.length > 0 ? <button onClick={() => dispatch(resetFavourit())} className='btn btn-danger  m-auto my-3'>Reset Favourit</button> : ""}</div>  
-                {favoriteProducts.length > 0 ? "" : <h1 className='text-center'>No Favourit produces </h1>}
+              {favoriteProducts.length > 0 ? "" : <div className="text-center ">
+                  <p className='fs-5'>No favorite items you added !</p>
+                  <Link href={"/"}>
+                    <button className='btn-crad'> return to products list</button>
+                  </Link>
+                </div>}
               </div>
             </div>
           </div>

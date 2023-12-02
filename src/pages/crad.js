@@ -5,13 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import { HiOutlinePlus } from "react-icons/hi2";
 import { HiOutlineMinus } from "react-icons/hi2";
 import { VscChromeClose } from "react-icons/vsc";
+import { GiDandelionFlower } from "react-icons/gi";
 
 import Head from 'next/head';
-import { incrementByAmount,removeProduce, decrementByAmount, resetCart } from '@/store/nextSlice';
+import { incrementByAmount, removeProduce, decrementByAmount, resetCart } from '@/store/nextSlice';
+import Link from 'next/link';
 const Crad = () => {
   const { cartProducts } = useSelector((state) => state.items)
   const dispatch = useDispatch();
- 
+
   return (
     <>
       <Head>
@@ -20,7 +22,7 @@ const Crad = () => {
       <div className='container-fluid '>
         <div className='row py-4 gy-3'>
 
-          <div className='col-md-9 '>
+          <div className={cartProducts.length > 0 ? `col-md-9` : "col-md-12"}>
             <div className='container-fluid bg-white container-crad'>
               <div className='row  p-2 '>
                 <div className='col-md-12  d-flex align-items-center justify-content-between'>
@@ -82,19 +84,19 @@ const Crad = () => {
                               quantity
                             }))} className='icon' /></span>
                           </div>
-                          <span  className='remove' onClick={() => dispatch(removeProduce({
-                              _id,
-                              title,
-                              description,
-                              oldPrice,
-                              price,
-                              brand,
-                              image,
-                              isNew,
-                              category,
-                              quantity
-                            }))}>
-                            <VscChromeClose   /> remove
+                          <span className='remove' onClick={() => dispatch(removeProduce({
+                            _id,
+                            title,
+                            description,
+                            oldPrice,
+                            price,
+                            brand,
+                            image,
+                            isNew,
+                            category,
+                            quantity
+                          }))}>
+                            <VscChromeClose /> remove
                           </span>
 
                         </div>
@@ -107,16 +109,44 @@ const Crad = () => {
                   </div>
                 ))}
                 {cartProducts.length > 0 ? <button onClick={() => dispatch(resetCart())} className='btn btn-danger w-25 m-auto my-3'>Reset Cart</button> : ""}
-                {cartProducts.length > 0 ? "" : <h1 className='text-center'>No produce</h1>}
+                {cartProducts.length > 0 ? "" : <div className="text-center ">
+                  <p className='fs-5'>your cart is empty !</p>
+                  <Link href={"/"}>
+                    <button className='btn-crad'>go to shopping !</button>
+                  </Link>
+                </div>}
               </div>
             </div>
           </div>
+          {
+            cartProducts.length > 0 ? <div className='col-md-3 '>
+              <div className='bg-white container-crad p-3'>
+                <div className='d-flex gap-3'>
+                  <div><GiDandelionFlower className="icon-crad" /></div>
+                  <p>
+                    Your order qualifies for FREE Shipping by Choosing this option at
+                    checkout. See details....
+                  </p>
+                </div>
+                <span className="">
+                  <p className='fw-bolder fs-5' >Total: $550</p>
 
-          <div className='col-md-3 '>
-            <div className='bg-white container-crad p-2'>
-              ahmed
-            </div>
-          </div>
+                </span>
+                <button
+
+                  className="btn btn-info w-100 fw-bolder text-white"
+                >
+                  Proceed to Pay
+                </button>
+
+                <p className="mx-auto text-center text-danger">
+                  Please login to continue
+                </p>
+
+              </div>
+            </div> : ""
+          }
+
         </div>
 
       </div> </>
