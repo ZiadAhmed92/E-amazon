@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart,addToFavourit } from '@/store/nextSlice';
 const Produces = ({ Produces }) => {
     const {cartProducts ,favoriteProducts} = useSelector((state) => state.items)
-  console.log(favoriteProducts.length)
+  
     const dispatch = useDispatch();
     return (
         <>
