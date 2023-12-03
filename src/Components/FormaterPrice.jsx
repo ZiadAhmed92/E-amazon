@@ -7,7 +7,7 @@ const FormaterPrice = ({amount}) => {
         minimumFractionDigits: 2,
       });
   return (
-    <div>{formatedPrice}</div>
+    <>{formatedPrice}</>
   )
 }
 

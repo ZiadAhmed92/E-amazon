@@ -13,7 +13,7 @@ const Header = () => {
   
   return (
     <div className='header p-2 d-flex align-items-center justify-content-center gap-2 ' style={{ background: "#131921" }}>
-      <Link href={"/"} style={{ textDecoration: "none" }}><div className='img-header'> <Image src={logo} width={100} height={50} className='mx-3 mt-1' alt='logo' /></div></Link>
+      <Link href={"/"} style={{ textDecoration: "none" }}><div className='img-header'> <Image src={logo} width={100} height={50} priority={true} className='mx-3 mt-1' alt='logo' /></div></Link>
       <div className='location text-white d-flex align-items-center gap-2   ' >
         <SlLocationPin />
         <h6 className='text-header text-center'>Deliver to <span className='d-block text-white'>Egypt</span></h6>
@@ -45,6 +45,7 @@ const Header = () => {
           <Image
             width={100}
             height={30}
+            priority={true}
             className="img-cart"
             src={cartIcon}
             alt="cart icon"

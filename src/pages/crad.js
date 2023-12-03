@@ -120,7 +120,7 @@ const Crad = () => {
                     </div>
                   </div>
                 ))}
-                {cartProducts.length > 0 ? <button onClick={() => dispatch(resetCart())} className='btn btn-danger w-25 m-auto my-3'>Reset Cart</button> : ""}
+                {cartProducts.length > 0 ? <button onClick={() => dispatch(resetCart())} className='btn-reset btn btn-danger m-auto my-3'>Reset Cart</button> : ""}
                 {cartProducts.length > 0 ? "" : <div className="text-center ">
                   <p className='fs-5'>your cart is empty !</p>
                   <Link href={"/"}>

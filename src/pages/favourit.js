@@ -57,7 +57,7 @@ const Favourit = () => {
                           
                         
                           <button 
-                            className='btn btn-black  btn-favourit'
+                            className='btn btn-black px-5  '
                             onClick={()=> dispatch(addToCart({
                                 _id,
                                 title,
@@ -75,14 +75,12 @@ const Favourit = () => {
 
                        
                       </div>
-                      <div className='position-absolute amount'>
-                        <FormaterPrice amount={price} />
-                      </div>
+                     
 
                     </div>
                   </div>
                 ))}
-              <div className='text-center'> {favoriteProducts.length > 0 ? <button onClick={() => dispatch(resetFavourit())} className='btn btn-danger  m-auto my-3'>Reset Favourit</button> : ""}</div>  
+              <div className='text-center'> {favoriteProducts.length > 0 ? <button onClick={() => dispatch(resetFavourit())} className='btn btn-danger px-5  m-auto my-3'>Reset Favourit</button> : ""}</div>  
               {favoriteProducts.length > 0 ? "" : <div className="text-center ">
                   <p className='fs-5'>No favorite items you added !</p>
                   <Link href={"/"}>

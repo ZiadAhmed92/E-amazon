@@ -203,9 +203,15 @@
 color: red;
 cursor: pointer;
 }
+.btn-reset{
+    width: 25% ;
+}
 @media only screen and (max-width: 600px) {
     .crad-mobile{
         flex-direction: column;
+    }
+    .btn-reset{
+        width: 100% !important;
     }
 }
 

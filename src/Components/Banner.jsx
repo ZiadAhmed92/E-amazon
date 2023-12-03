@@ -15,15 +15,16 @@ const Banner = () => {
         showIndicators={false}
         showStatus={false}
         swipeable={true} 
+       
         className='iggg '>
         <div>
-          <Image priority src={sliderImg_1} className='w-100 img-carousel' alt="find gift for dad image" />
+          <Image priority  src={sliderImg_1} width="auto" height="auto" className='w-100 img-carousel' alt="find gift for dad image" />
         </div>
         <div>
-          <Image src={sliderImg_2} className='w-100 img-carousel' alt="ship products over world image" />
+          <Image src={sliderImg_2} width="auto" height="auto" className='w-100 img-carousel' alt="ship products over world image" />
         </div>
         <div>
-          <Image src={sliderImg_3} className='w-100 img-carousel' alt="beauty products image" />
+          <Image src={sliderImg_3} width="auto" height="auto" className='w-100 img-carousel' alt="beauty products image" />
         </div>
               
             </Carousel>
