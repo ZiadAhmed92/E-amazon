@@ -57,7 +57,7 @@ const Favourit = () => {
                           
                         
                           <button 
-                            className='btn btn-black px-5  '
+                            className='btn btn-black px-5'
                             onClick={()=> dispatch(addToCart({
                                 _id,
                                 title,

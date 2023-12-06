@@ -25,7 +25,7 @@ const Produces = ({ Produces }) => {
                 <div className='col-lg-3 col-md-4 col-sm-6  gy-3 produces-translate' key={_id}>
                     <div className='bg-white p-2 position-relative' style={{ borderRadius: "10px" }}>
                         {isNew && (
-                            <div className=" discount d-flex">
+                            <div className=" discount d-flex ">
                                 !save <FormaterPrice amount={oldPrice - price} />
                                 </div>
                         )}

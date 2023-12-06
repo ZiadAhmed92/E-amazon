@@ -89,8 +89,15 @@
     justify-content: center;
     cursor: pointer;
 }
+.sign-in2 {
+    color: white;
+    min-height: 60px;
+    padding: 5px;
+    display: flex;
+    cursor: pointer;
+}
 
-.sign-in:hover {
+.sign-in:hover,.sign-in2:hover {
     outline: .5px solid white;
 }
 
@@ -166,7 +173,10 @@
     outline: 1px solid white;
 }
 
-
+.text-email{
+    color: #EEE;
+    font-size: 0.8em;
+}
 
            /* media */
 @media only screen and (max-width: 600px) {

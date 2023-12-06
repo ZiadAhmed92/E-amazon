@@ -60,11 +60,17 @@ export const itemsSlice = createSlice({
                 state.cartProducts = existingProduct
             }
         },
+        addUser: (state, action) => {
+          state.userInfo = action.payload
+        },
+        removeUser: (state) => {
+            state.userInfo = null;
+          },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addToCart, resetCart, incrementByAmount, decrementByAmount, removeProduce, addToFavourit, resetFavourit } = itemsSlice.actions
+export const { addToCart, addUser , removeUser ,  resetCart, incrementByAmount, decrementByAmount, removeProduce, addToFavourit, resetFavourit } = itemsSlice.actions
 
 const itemsSliceReducer = itemsSlice.reducer
 

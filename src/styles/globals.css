@@ -52,6 +52,7 @@
 
 .produces-translate:hover .discount {
     color: rgb(7, 253, 7);
+    animation: bounce 1s infinite; /* 1s duration, infinite loop */
 }
 
 .btn-black {
@@ -226,3 +227,63 @@ cursor: pointer;
     }
    
 }
+
+/* animation  */
+
+/* Define keyframes for the bounce animation */
+@keyframes bounce {
+   
+    10% {
+      transform: translateY(-8px);
+      /*Moveup*/-webkit-transform: translateY(-5px);
+      -moz-transform: translateY(-8px);
+      -ms-transform: translateY(-8px);
+      -o-transform: translateY(-8px);
+      -webkit-transform: translateY(-8px);
+}
+    10% {
+      transform: translateY(-5px);
+      /*Moveup*/-webkit-transform: translateY(-5px);
+     
+      -moz-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      -o-transform: translateY(-5px);
+}
+    30% {
+      transform: translateY(-3px);
+      
+      -moz-transform: translateY(-3px);
+      -ms-transform: translateY(-3px);
+      -o-transform: translateY(-3px);
+      -webkit-transform: translateY(-3px);
+}
+    50% {
+      transform: translateY(-5px);
+     
+      -webkit-transform: translateY(-2px);
+      -moz-transform: translateY(-5px);
+      -ms-transform: translateY(-5px);
+      -o-transform: translateY(-5px);
+}
+    70% {
+      transform: translateY(-1px);
+    
+      -webkit-transform: translateY(-1px);
+      -moz-transform: translateY(-1px);
+      -ms-transform: translateY(-1px);
+      -o-transform: translateY(-1px);
+}
+ 100% {
+      transform: translateY(0);
+       /* Bounce at the top position */   
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+}
+  }
+  
+  /* Apply the bounce animation to an element */
+  .bouncing-element {
+    animation: bounce 1s infinite; /* 1s duration, infinite loop */
+  }
