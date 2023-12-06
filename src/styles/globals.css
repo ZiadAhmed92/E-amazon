@@ -287,3 +287,8 @@ cursor: pointer;
   .bouncing-element {
     animation: bounce 1s infinite; /* 1s duration, infinite loop */
   }
+
+
+  .cursor_notAllow:hover{
+    cursor: not-allowed;
+  }
